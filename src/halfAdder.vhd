@@ -9,9 +9,17 @@
 --| USAF Academy, CO 80840           \____//____/_/  |_/_/   /_/  |_|
 --| 
 --| ---------------------------------------------------------------------------
---|
+--| FILENAME      : halfAdder.vhd
+--| AUTHOR        : Dexter James
+--| CREATED       : 01/21/2025
 --| DESCRIPTION   : This file implements a one bit half adder.
+--| DOCUMENTATION : NONE
 --|
+--| REQUIRED FILES :
+--|
+--|    Libraries : ieee
+--|    Packages  : std_logic_1164, numeric_std, unisim
+--|    Files     : NONE
 --+----------------------------------------------------------------------------
 --|
 --| NAMING CONVENSIONS :
@@ -29,19 +37,23 @@ entity halfAdder is
   port(
 	i_A     : in  std_logic; -- 1-bit input port
 	i_B     : in  std_logic; 
-	o_S     : out std_logic  -- 1-bit output port (NOTE: NO semicolon on LAST port only!)	    
+	o_S     : out std_logic;
+	o_Cout  : out std_logic  -- 1-bit output port (NOTE: NO semicolon on LAST port only!)	    
 	-- TODO:  Carry port
   ); -- the semicolon is here instead
 end halfAdder;
 
 architecture halfAdder_arch of halfAdder is 
-	-- this is where you would include components declarations and signals, but we don't need them for this
+	-- this is where you would include components declarations and signals, 
+	-- but we don't need them for this
 	  
 begin
-	-- this is where you would map ports for any component instantiations, but we don't need them for this
+	-- this is where you would map ports for any component instantiations, 
+	-- but we don't need them for this
 
 	-- *concurrent* signal assignments
 	o_S    <= i_A xor i_B;
 	-- TODO:  Carry signal assignment
+	o_Cout <= i_A and i_B;
 	
 end halfAdder_arch;
